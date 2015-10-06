@@ -10,7 +10,7 @@
 
 int main(int argc, const char * argv[]) {
     char c;
-    scanf("%c",&c);
+    c=getchar();
     if (c == EOF) {
         printf("c is EOF\n");
     } else {
