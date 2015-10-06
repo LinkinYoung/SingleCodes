@@ -9,11 +9,12 @@
 #include <stdio.h>
 
 int main(int argc, const char * argv[]) {
-    char c=-1;
+    char c;
+    scanf("%c",&c);
     if (c == EOF) {
-        printf("%c is EOF\n",c);
+        printf("c is EOF\n");
     } else {
-        printf("%c != EOF\n",c);
+        printf("c != EOF\n");
     }
     return 0;
 }
