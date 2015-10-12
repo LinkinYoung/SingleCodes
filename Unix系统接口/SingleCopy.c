@@ -9,9 +9,19 @@
 #include <stdio.h>
 #include <sys/file.h>
 #include <unistd.h>
+#include <stdarg.h>
 #define PERMS 0666
 
-void error(char *, ...);
+void error(char *fmt, ...){
+    va_list args;
+    
+    va_start(args, fmt);
+    fprintf(stderr, "error: ");
+    vfprintf(stderr, fmt, args);
+    fprintf(stderr, "\n");
+    va_end(args);
+    exit(1);
+}
 
 int main(int argc, const char * argv[]) {
     int f1,f2,n;
@@ -28,7 +38,7 @@ int main(int argc, const char * argv[]) {
     }
     while ((n = read(f1, buf, BUFSIZ)) > 0) {
         if (write(f2, buf, n) != n) {
-            error("cp: write error on file %s",argv[2]);
+            // error("cp: write error on file %s",argv[2]);
         }
     }
     return 0;
