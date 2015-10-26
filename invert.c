@@ -7,16 +7,15 @@
 //
 
 #include <stdio.h>
-
-long invert(unsigned long x,int p,int n){
-    return (((~(x >> p)) << (64-n)) >> (64-n-p)) | (x << (64-p) >> (64-p)) | (x >> (p+n) << (p+n));
+int invert( int x,int p,int n){
+    return (~((~0) << n)) << (p-1) ^ x;
 }
 int main(int argc, const char * argv[]) {
-    unsigned long x;
+    int x;
     int p,n;
-    while (scanf("%lx%d%d",&x,&p,&n)!=EOF) {
+    while (scanf("%x%d%d",&x,&p,&n)!=EOF) {
         x = invert(x,p,n);
-        printf("%ld\n",x);
+        printf("%d\n",x);
     }
     return 0;
 }
