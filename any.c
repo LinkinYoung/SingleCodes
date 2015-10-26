@@ -21,6 +21,11 @@ int any(char *s1,char *s2){
     return -1;
 }
 int main(int argc, const char * argv[]) {
-    //对于s2:空格算不算字符？标点呢？区分大小写么？
+    //对于s2:空格算不算字符？标点呢？
+    char s1[100],s2[100];
+    fgets(s1, 100, stdin);
+    fgets(s2, 100, stdin);
+    int n=any(s1, s2);
+    printf("%d\n",n);
     return 0;
 }
